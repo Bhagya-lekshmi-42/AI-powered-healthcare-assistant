@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Healthcare Assistant</title>
+</head>
+<body>
+    <h2>Patient Symptom Intake Form</h2>
+    <form action="/submit" method="POST">
+        <label for="name">Patient Name:</label><br>
+        <input type="text" id="id_name" name="name" required><br><br>
+
+        <label for="age">Age:</label><br>
+        <input type="number" id="id_age" name="age" required><br><br>
+
+        <label for="symptoms">Describe your Symptoms:</label><br>
+        <textarea id="id_symptoms" name="symptoms" rows="4" cols="40" placeholder="e.g., Fever, cough, and mild headache for 2 days" required></textarea><br><br>
+
+        <button type="submit">Submit Info</button>
+    </form>
+</body>
+</html>
