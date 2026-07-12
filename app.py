@@ -19,10 +19,10 @@ client = OpenAI(api_key=os.environ.get("OPEN_API_KEY"))
 
 def get_db_connection():
     conn = mysql.connector.connect(
-        host="localhost",
-        user="root",           
-        password="***REMOVED***",  
-        database="healthcare_db"
+        host=os.environ.get("DB_HOST", "localhost"),
+        user=os.environ.get("DB_USER", "root"),
+        password=os.environ.get("DB_PASSWORD"),  
+        database=os.environ.get("DB_NAME", "healthcare_db")
     )
     return conn
 
