@@ -79,7 +79,7 @@ def submit():
                 </div>
                 <br><br>
                 
-                <!-- ബട്ടണുകൾ ഇവിടെ നൽകുന്നു -->
+                
                 <a href="/" style="background-color: #7f8c8d; color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; margin-right: 10px; display: inline-block; font-weight: bold;">Go Back</a>
                 
                 <a href="/history" style="background-color: #3498db; color: white; padding: 12px 24px; text-decoration: none; border-radius: 4px; display: inline-block; font-weight: bold;">📊 View Patient History Dashboard</a>
