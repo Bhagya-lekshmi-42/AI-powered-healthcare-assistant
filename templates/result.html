@@ -1,0 +1,29 @@
+<!-- templates/result.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assessment Result</title>
+</head>
+<body style="font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px;">
+
+    <div style="background-color: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <h3 style="color: #2c3e50; margin-top: 0;">Data Saved and Analyzed Successfully!</h3>
+        <p><b>Patient Name:</b> {{ name }}</p>
+        <p><b>Age:</b> {{ age }}</p>
+        <p><b>Submitted Symptoms:</b> {{ symptoms }}</p>
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+        
+        <h4>🤖 AI Medical Assessment (OpenAI):</h4>
+        <div style="background-color: #f0f4f8; padding: 15px; border-radius: 5px; white-space: pre-wrap; border-left: 5px solid #3498db; line-height: 1.6;">
+            {{ analysis }}
+        </div>
+        <br><br>
+        <a href="/" style="background-color: #95a5a6; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-right: 10px; display: inline-block;">Go Back</a>
+        
+        <a href="/history" style="background-color: #3498db; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;">📊 View Patient History</a>
+    </div>
+
+</body>
+</html>
