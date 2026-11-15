@@ -1,81 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Healthcare Co-Pilot</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
-    </style>
-</head>
-<body class="bg-slate-50 min-h-screen flex items-center justify-center p-4 md:p-8">
+{% extends "base.html" %}
+{% block title %}New Case · MedAI Assistant{% endblock %}
+{% block content %}
+<div class="grid md:grid-cols-5 bg-white rounded-3xl shadow-xl shadow-slate-200/50 overflow-hidden border border-slate-100">
 
-    <div class="max-w-4xl w-full grid md:grid-cols-5 gap-8 bg-white rounded-3xl shadow-xl shadow-slate-200/50 overflow-hidden border border-slate-100">
-        
-        
-        <div class="md:col-span-2 bg-gradient-to-br from-blue-600 to-indigo-700 p-8 text-white flex flex-col justify-between">
-            <div>
-                <div class="inline-flex items-center justify-center p-3 bg-white/10 rounded-2xl mb-6 backdrop-blur-md">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-                </div>
-                <h1 class="text-2xl font-bold leading-tight mb-2">MedAI Assistant</h1>
-                <p class="text-blue-100 text-sm leading-relaxed">Advanced symptom analysis powered by GenAI, tailored securely for clinical environments.</p>
+    <div class="md:col-span-2 bg-gradient-to-br from-blue-600 to-indigo-700 p-8 text-white flex flex-col justify-between">
+        <div>
+            <div class="inline-flex items-center justify-center p-3 bg-white/10 rounded-2xl mb-6 backdrop-blur-md">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
             </div>
-            
-            <div class="mt-8 md:mt-0">
-                <div class="bg-white/10 p-4 rounded-2xl border border-white/10 backdrop-blur-sm">
-                    <span class="text-xs font-semibold text-blue-200 uppercase tracking-wider block mb-1">🔒 Restricted Access</span>
-                    <p class="text-xs text-blue-100/80">Patient records are only accessible via secure verification keys.</p>
-                </div>
-            </div>
+            <h1 class="text-2xl font-bold leading-tight mb-2">MedAI Assistant</h1>
+            <p class="text-blue-100 text-sm leading-relaxed">AI-assisted symptom analysis to support faster patient intake and first-level triage.</p>
         </div>
 
-        
-        <div class="md:col-span-3 p-8 flex flex-col justify-center">
-            <div class="mb-6">
-                <h2 class="text-xl font-bold text-slate-800">Patient Intake Form</h2>
-                <p class="text-sm text-slate-500">Log new clinical cases securely into the local node.</p>
-            </div>
-
-            <form action="/submit" method="POST" class="space-y-5">
-                <div>
-                    <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">Patient Name</label>
-                    <input type="text" name="name" required placeholder="e.g. John Doe" 
-                           class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-all text-sm">
-                </div>
-
-                <div class="grid grid-cols-3 gap-4">
-                    <div class="col-span-1">
-                        <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">Age</label>
-                        <input type="number" name="age" required placeholder="Years" 
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-all text-sm">
-                    </div>
-                    <div class="col-span-2">
-                        <label class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">Primary Symptom</label>
-                        <input type="text" name="symptoms" required placeholder="e.g. Acute dry cough" 
-                               class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-all text-sm">
-                    </div>
-                </div>
-
-                <button type="submit" 
-                        class="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium py-3 rounded-xl transition-all shadow-lg shadow-slate-900/10 text-sm flex items-center justify-center gap-2">
-                    <span>Analyze & Record Case</span>
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                </button>
-            </form>
-            <div class="mt-6 pt-6 border-t border-slate-100 flex items-center justify-between">
-                <span class="text-xs text-slate-400">Authorized clinician portal</span>
-                <a href="/history" class="text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors flex items-center gap-1">
-                    <span>View Dashboard</span>
-                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                </a>
+        <div class="mt-8 md:mt-0">
+            <div class="bg-white/10 p-4 rounded-2xl border border-white/10 backdrop-blur-sm">
+                <span class="text-xs font-semibold text-blue-200 uppercase tracking-wider block mb-1">🔒 Protected Records</span>
+                <p class="text-xs text-blue-100/80">The patient history dashboard is password protected.</p>
             </div>
         </div>
-
     </div>
 
-</body>
-</html>
+    <div class="md:col-span-3 p-8 flex flex-col justify-center">
+        <div class="mb-6">
+            <h2 class="text-xl font-bold text-slate-800">Patient Intake Form</h2>
+            <p class="text-sm text-slate-500">Enter the patient's details to record the case and get an AI assessment.</p>
+        </div>
+
+        {% if errors %}
+        <div class="mb-5 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+            <ul class="list-disc pl-5 space-y-1">
+                {% for error in errors %}<li>{{ error }}</li>{% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <form action="{{ url_for('submit') }}" method="POST" class="space-y-5">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div>
+                <label for="name" class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">Patient Name</label>
+                <input id="name" type="text" name="name" required maxlength="100" placeholder="e.g. John Doe" value="{{ form.get('name', '') }}"
+                       class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-all text-sm">
+            </div>
+
+            <div>
+                <label for="age" class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">Age</label>
+                <input id="age" type="number" name="age" required min="0" max="130" placeholder="Years" value="{{ form.get('age_raw', '') }}"
+                       class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-all text-sm">
+            </div>
+
+            <div>
+                <label for="symptoms" class="block text-xs font-semibold text-slate-600 uppercase tracking-wider mb-2">Symptoms</label>
+                <textarea id="symptoms" name="symptoms" required maxlength="1000" rows="4" placeholder="e.g. Dry cough for 3 days, mild fever, sore throat"
+                          class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:bg-white transition-all text-sm">{{ form.get('symptoms', '') }}</textarea>
+            </div>
+
+            <button type="submit"
+                    class="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium py-3 rounded-xl transition-all shadow-lg shadow-slate-900/10 text-sm flex items-center justify-center gap-2">
+                <span>Analyze &amp; Record Case</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
